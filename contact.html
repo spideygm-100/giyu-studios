@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – GIYU Studios</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #1a1a2e, #16213e, #0f3460);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 15px 0;
+      backdrop-filter: blur(12px);
+      background: rgba(0,0,0,0.25);
+      z-index: 999;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #d5d9ff;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav .active {
+      color: #00d4ff;
+      text-shadow: 0 0 8px #00d4ff;
+    }
+
+    /* Offset for header */
+    .spacer {
+      height: 80px;
+    }
+
+    /* Floating particles */
+    .particle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      animation: floatUp 10s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.4); }
+      100% { transform: translateY(-10vh) scale(1); }
+    }
+
+    /* Contact container */
+    .contact-box {
+      max-width: 600px;
+      margin: 20px auto 70px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.15);
+      animation: fadeIn 1.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    p.desc {
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    /* Form styling */
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      color: #fff;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #00d4ff;
+      box-shadow: 0 0 10px #00d4ff;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    /* Submit button */
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #00d4ff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #4be7ff;
+      box-shadow: 0 0 12px #4be7ff;
+      transform: scale(1.03);
+    }
+
+    /* Socials */
+    .socials {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      font-size: 22px;
+      text-decoration: none;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      color: #00d4ff;
+      text-shadow: 0 0 10px #00d4ff;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 30px;
+      color: #cbd0ff;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    footer span {
+      color: #00d4ff;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-inner">
+      <div style="font-size: 1.4rem; font-weight: 700;">GIYU Studios</div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="packages.html">Editing Packages</a>
+        <a href="books.html">Books</a>
+        <a href="web-apps.html">Webs & Apps</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="spacer"></div>
+
+  <!-- Floating Particles -->
+  <script>
+    for (let i = 0; i < 40; i++) {
+      let p = document.createElement("div");
+      p.className = "particle";
+      p.style.left = Math.random() * 100 + "vw";
+      p.style.animationDuration = (8 + Math.random() * 6) + "s";
+      document.body.appendChild(p);
+    }
+  </script>
+
+  <div class="contact-box">
+    <h2>Contact Us</h2>
+    <p class="desc">Let’s talk! Message us anytime.</p>
+
+    <form>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Enter your name">
+      </div>
+
+      <div class="form-group">
+        <label>Your Email</label>
+        <input type="email" placeholder="Enter your email">
+      </div>
+
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea placeholder="Type your message..."></textarea>
+      </div>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="socials">
+      <a href="https://wa.me/818695827">WhatsApp</a>
+      <a href="https://instagram.com/spideygm100">Instagram</a>
+      <a href="mailto:arqueonstudios@gmail.com">Email</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> GIYU Studios • Made by Spidey
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

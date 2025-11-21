@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Packages — G I Y U Studios</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: rgba(255,255,255,0.05);
+      --accent: linear-gradient(90deg,#7c3aed,#06b6d4);
+      --muted: #9aa7bf;
+      --radius: 16px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: Inter, Manrope, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: #e6eef8;
+      line-height: 1.4;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      backdrop-filter: blur(8px);
+      padding: 14px 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover, nav a.active { color: white; }
+
+    main {
+      margin-top: 110px;
+      padding: 20px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin: 0 0 10px;
+    }
+
+    .muted {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    /* Cards Grid */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.6s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 50px rgba(124,58,237,0.4);
+    }
+
+    .name { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+    .desc { color: var(--muted); margin-bottom: 12px; font-size: 0.95rem; }
+    .price { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; color: #fff; }
+    .features { color: #b9c2d4; margin-bottom: 18px; font-size: 0.9rem; line-height: 1.4; }
+
+    .actions { display: flex; gap: 10px; justify-content: center; }
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+    .btn-order { background: var(--accent); color: #fff; }
+    .btn-order:hover { transform: translateY(-2px); }
+    .btn-details { background: #1f2937; color: #fff; }
+    .btn-details:hover { transform: translateY(-2px); }
+
+    /* Modal */
+    #modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.65);
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+    }
+
+    #modal {
+      width: 340px;
+      background: #152032;
+      padding: 22px;
+      border-radius: var(--radius);
+      box-shadow: 0 0 36px rgba(0,0,0,0.6);
+    }
+
+    #modal h2 { margin: 0 0 10px; }
+    #close-btn {
+      margin-top: 14px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 12px;
+      border: none;
+      background: #7c3aed;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media(max-width:900px) { .cards { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:600px) { .cards { grid-template-columns: 1fr; } h1{ font-size:2.2rem; } }
+
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="nav-inner">
+    <div style="font-weight:800;font-size:1.3rem;">G I Y U Studios</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+  <h1>Editing Packages</h1>
+  <div class="muted">Choose the perfect package for your project.</div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="name">Basic</div>
+      <div class="desc">Simple cuts, light color grade, noise clean-up.</div>
+      <div class="price">₹180</div>
+      <div class="features">• Up to 1 min<br>• 1 revision<br>• 24–48 hrs</div>
+      <div class="actions">
+        <button class="btn btn-order" onclick="openOrder('Basic','180')">Order</button>
+        <button class="btn btn-details" onclick="showDetails('Simple edits ideal for reels/short videos.')">Details</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="name">Standard</div>
+      <div class="desc">Better color grade, clean transitions, audio fix.</div>
+      <div class="price">₹450</div>
+      <div class="features">• Up to 3 min<br>• 3 revisions<br>• 3–5 days</div>
+      <div class="actions">
+        <button class="btn btn-order" onclick="openOrder('Standard','450')">Order</button>
+        <button class="btn btn-details" onclick="showDetails('Great for social media videos & better transitions.')">Details</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="name">Premium</div>
+      <div class="desc">Full VFX, motion graphics, cinematic grade.</div>
+      <div class="price">₹699</div>
+      <div class="features">• Up to 10 min<br>• Priority support<br>• 7–12 days</div>
+      <div class="actions">
+        <button class="btn btn-order" onclick="openOrder('Premium','699')">Order</button>
+        <button class="btn btn-details" onclick="showDetails('Advanced VFX, motion graphics, cinematic editing.')">Details</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Modal -->
+<div id="modal-bg">
+  <div id="modal">
+    <h2 id="modal-title"></h2>
+    <p id="modal-text"></p>
+    <button id="close-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+
+<script>
+  // Modal functions
+  function openOrder(name, price) {
+    document.getElementById("modal-title").innerText = name + " Package";
+    document.getElementById("modal-text").innerHTML =
+      "Price: ₹" + price + "<br>" +
+      "Message me on Instagram to place your order.<br>" +
+      '<a href="https://www.instagram.com/spideygm100" target="_blank" style="color:#7c3aed;text-decoration:underline;">INSTAGRAM</a>';
+    document.getElementById("modal-bg").style.display = "flex";
+  }
+
+  function showDetails(text) {
+    document.getElementById("modal-title").innerText = "Details";
+    document.getElementById("modal-text").innerText = text;
+    document.getElementById("modal-bg").style.display = "flex";
+  }
+
+  function closeModal() { document.getElementById("modal-bg").style.display = "none"; }
+
+  // Animate cards
+  const cards = document.querySelectorAll('.card');
+  cards.forEach((card, i) => { setTimeout(() => { card.classList.add('show'); }, i*150); });
+</script>
+
+</body>
+</html>

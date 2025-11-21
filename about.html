@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — G I Y U Studios</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #10182bcc;
+      --accent: #7c3aed;
+      --muted: #9aa7bf;
+      --radius: 16px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: Inter;
+      color: #e6eef8;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      backdrop-filter: blur(8px);
+      padding: 14px 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    nav a:hover, nav a.active {
+      color: white;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      margin-top: 110px;
+      padding: 20px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn .7s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .about-box {
+      background: var(--card);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 35px rgba(0,0,0,0.45);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      animation: slideUp .7s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .muted {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    .about-text {
+      color: #c7d2e2;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .glow {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Team box */
+    .team-grid {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .team-card {
+      background: #141e30cc;
+      padding: 20px;
+      text-align: center;
+      border-radius: var(--radius);
+      border: 1px solid rgba(124,58,237,0.25);
+      backdrop-filter: blur(6px);
+      transition: 0.3s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 22px rgba(124, 58, 237, 0.4);
+    }
+
+    .team-card h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .team-role {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media(max-width: 800px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div style="font-weight:800;font-size:1.3rem;">G I Y U Studios</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="packages.html">Editing Packages</a>
+      <a href="books.html">Books</a>
+      <a href="web-apps.html">Webs & Apps</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="about-box">
+    <h1>About Us</h1>
+    <div class="muted">The vision. The craft. The future we’re building.</div>
+
+    <div class="section-title">Who We Are</div>
+    <div class="about-text">
+      G I Y U Studios is a creative & digital development studio specializing in 
+      <span class="glow">video editing, websites, apps, books, and visual creation</span>.
+      We aim to bring high-end quality at affordable pricing — built for dreamers,
+      creators, developers, and brands who want to stand out.
+    </div>
+
+    <div class="section-title">What We Do</div>
+    <div class="about-text">
+      We build responsive websites, mobile apps, cinematic edits, and aesthetic books.  
+      Everything we make follows one rule:  
+      <span class="glow">“Quality first. Always.”</span>
+    </div>
+
+    <div class="section-title">Our Team</div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <h3>Spidey</h3>
+        <div class="team-role">Founder • Lead Developer</div>
+      </div>
+
+      <div class="team-card">
+        <h3>zash</h3>
+        <div class="team-role">Design Assistant • Creative Partner</div>
+      </div>
+
+      <div class="team-card">
+        <h3>G I Y U Studios Team</h3>
+        <div class="team-role">Editing • Tech Support</div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+</body>
+</html>
+
