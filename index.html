@@ -118,17 +118,16 @@
     </div>
 
     <nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="packages.html">Editing Packages</a></li>
-    <li><a href="books.html">Books</a></li>
-    <li><a href="web-apps.html">Webs & Apps</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contacts</a></li>
-  </ul>
-</nav>
-
-
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="packages.html">Editing Packages</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="web-apps.html">Webs & Apps</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
@@ -149,6 +148,51 @@
 </section>
 
 <style>
+
+  /* Basic header styles stay the same */
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  backdrop-filter: blur(6px);
+  background: rgba(15,23,36,0.85); /* slight background for clarity */
+  padding: 10px 0;
+}
+
+/* Hide mobile menu initially */
+#nav-links {
+  display: flex;
+  gap: 18px;
+}
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  nav ul {
+    display: none; /* hide links initially */
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(15,23,36,0.95);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    padding: 12px;
+    border-radius: 8px;
+  }
+  .hamburger {
+    display: block;
+  }
+  nav ul.show {
+    display: flex;
+  }
+}
 
 /* Full-screen background for the whole page */
 body {
@@ -303,6 +347,14 @@ body {
       }, i * 150); // stagger effect
     });
   });
+
+  // Toggle mobile menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
 </script>
 
   </main>
@@ -328,4 +380,3 @@ body {
   </script>
 </body>
 </html>
-
