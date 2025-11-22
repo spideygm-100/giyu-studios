@@ -62,11 +62,20 @@
     .hero::after{
       content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 10%, rgba(2,6,23,0.6) 60%);pointer-events:none
     }
-    .hero-bg{
-      position:absolute;inset:0;background-size:cover;background-position:center center;filter:contrast(1.02) saturate(0.9) brightness(0.55);transform:scale(1.02);z-index:-2;
-      /* Replace this path with images/home-bg.jpg */
-      background-image:url('images/home-bg.jpg');
-    }
+  .hero-bg {
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center center;
+
+  /* Increase brightness + saturation */
+  filter: contrast(1.1) saturate(1.25) brightness(0.85);
+
+  transform:scale(1.02);
+  z-index:-2;
+  background-image:url('images/home-bg.jpg');
+}
+
     .hero-inner{max-width:1000px;margin:0 auto;text-align:center;padding:36px}
     .eyebrow{font-size:0.9rem;color:var(--muted);margin-bottom:6px}
 
